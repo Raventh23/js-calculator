@@ -32,4 +32,3 @@ function operate(a ,b, operand){
 let numberA;
 let numberB;
 let operand;
-console.log(operate(5, 7, '/'));
