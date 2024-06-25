@@ -29,6 +29,22 @@ function operate(a ,b, operand){
         }
     }
 }
-let numberA;
-let numberB;
+let numberA = null;
+let numberB = null;
 let operand;
+//
+label = document.querySelector('label');
+//label.innerText = 
+let numKeys = document.querySelectorAll('.numberKeys button')
+let keyassign = 9;
+numKeys.forEach((numkey) =>{
+    numkey.addEventListener('click', () =>{
+        if(numberA === null){
+            numberB = numkey.innerText;
+        }
+        else{
+            numberA = numkey.innerText;
+        }
+    })
+    keyassign--;
+})
