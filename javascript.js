@@ -29,22 +29,21 @@ function operate(a ,b, operand){
         }
     }
 }
-let numberA = null;
-let numberB = null;
-let operand;
+let numberA = '';
+let numberB = '';
+let operand = '';
 //
 label = document.querySelector('label');
-//label.innerText = 
 let numKeys = document.querySelectorAll('.numberKeys button')
-let keyassign = 9;
 numKeys.forEach((numkey) =>{
     numkey.addEventListener('click', () =>{
-        if(numberA === null){
-            numberB = numkey.innerText;
+        if(operand !== ''){
+            numberB += numkey.innerText;
+            label.innerText = (`${numberA} ${operand} ${numberB}`);
         }
         else{
-            numberA = numkey.innerText;
+            numberA += numkey.innerText;
+            label.innerText = (`${numberA} ${operand} ${numberB}`);
         }
     })
-    keyassign--;
 })
