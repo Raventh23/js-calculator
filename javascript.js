@@ -21,7 +21,7 @@ function operate(a ,b, operand){
         return multi(a, b);
     }
     else if(operand == '/'){
-        if(a == 0 && b == 0){
+        if(a == 0 || b == 0){
             alert("what are you thinking?");
         }
         else{
@@ -74,12 +74,18 @@ operandKey.addEventListener('click',()=>{
 });
 operateKey = document.querySelector('#equals');
 operateKey.addEventListener('click', ()=>{
-    numberA = parseInt(numberA);
-    numberB = parseInt(numberB);
-    numberA = operate(numberA, numberB, operand);
+    if(numberA === ''|| numberB === '' || operand === ''){
+        alert('you need to make sure you have two numbers and an operand')
+    }
+    else{
+    numberA = parseFloat(numberA);
+    numberB = parseFloat(numberB);
+    numberA = operate(numberA, numberB, operand).toFixed(2); //operates the equation and rounds it to two decimals
     numberB = ''
     operand = ''
     labelUpdate();
+    }
+    
 })
 clearKey = document.querySelector('#clear');
 clearKey.addEventListener('click', ()=>{
