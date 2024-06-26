@@ -81,3 +81,10 @@ operateKey.addEventListener('click', ()=>{
     operand = ''
     labelUpdate();
 })
+clearKey = document.querySelector('#clear');
+clearKey.addEventListener('click', ()=>{
+    numberA = '';
+    numberB = '';
+    operand = '';
+    labelUpdate();
+})
