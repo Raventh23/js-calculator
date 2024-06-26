@@ -29,6 +29,9 @@ function operate(a ,b, operand){
         }
     }
 }
+function labelUpdate(){
+    label.innerText = (`${numberA} ${operand} ${numberB}`);
+}
 let numberA = '';
 let numberB = '';
 let operand = '';
@@ -40,11 +43,11 @@ numKeys.forEach((numkey) =>{
     numkey.addEventListener('click', () =>{
         if(operand !== ''){ //controls the second number
             numberB += numkey.innerText;
-            label.innerText = (`${numberA} ${operand} ${numberB}`);
+            labelUpdate();
         }
         else{ //controls the first number if no operand is selected
             numberA += numkey.innerText;
-            label.innerText = (`${numberA} ${operand} ${numberB}`);
+            labelUpdate();
         }
     })
 })
@@ -52,20 +55,29 @@ numKeys.forEach((numkey) =>{
 operandKey = document.querySelector('#plus');
 operandKey.addEventListener('click', ()=> {
     operand = '+';
-    label.innerText = (`${numberA} ${operand} ${numberB}`);
+    labelUpdate();
 });
 operandKey = document.querySelector('#minus');
 operandKey.addEventListener('click',()=>{
     operand = '-';
-    label.innerText = (`${numberA} ${operand} ${numberB}`);
+    labelUpdate();
 });
 operandKey = document.querySelector('#times');
 operandKey.addEventListener('click',()=>{
     operand = '*';
-    label.innerText = (`${numberA} ${operand} ${numberB}`);
+    labelUpdate();
 });
 operandKey = document.querySelector('#divide');
 operandKey.addEventListener('click',()=>{
     operand = '/';
-    label.innerText = (`${numberA} ${operand} ${numberB}`);
+    labelUpdate();
 });
+operateKey = document.querySelector('#equals');
+operateKey.addEventListener('click', ()=>{
+    numberA = parseInt(numberA);
+    numberB = parseInt(numberB);
+    numberA = operate(numberA, numberB, operand);
+    numberB = ''
+    operand = ''
+    labelUpdate();
+})
