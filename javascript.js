@@ -34,16 +34,38 @@ let numberB = '';
 let operand = '';
 //
 label = document.querySelector('label');
-let numKeys = document.querySelectorAll('.numberKeys button')
+
+let numKeys = document.querySelectorAll('.numberKeys button') //creates the eventlistners for the num keys
 numKeys.forEach((numkey) =>{
     numkey.addEventListener('click', () =>{
-        if(operand !== ''){
+        if(operand !== ''){ //controls the second number
             numberB += numkey.innerText;
             label.innerText = (`${numberA} ${operand} ${numberB}`);
         }
-        else{
+        else{ //controls the first number if no operand is selected
             numberA += numkey.innerText;
             label.innerText = (`${numberA} ${operand} ${numberB}`);
         }
     })
 })
+
+operandKey = document.querySelector('#plus');
+operandKey.addEventListener('click', ()=> {
+    operand = '+';
+    label.innerText = (`${numberA} ${operand} ${numberB}`);
+});
+operandKey = document.querySelector('#minus');
+operandKey.addEventListener('click',()=>{
+    operand = '-';
+    label.innerText = (`${numberA} ${operand} ${numberB}`);
+});
+operandKey = document.querySelector('#times');
+operandKey.addEventListener('click',()=>{
+    operand = '*';
+    label.innerText = (`${numberA} ${operand} ${numberB}`);
+});
+operandKey = document.querySelector('#divide');
+operandKey.addEventListener('click',()=>{
+    operand = '/';
+    label.innerText = (`${numberA} ${operand} ${numberB}`);
+});
