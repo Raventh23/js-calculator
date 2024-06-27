@@ -1,0 +1,1 @@
+ a simple JS calculator done through DOM manipulation as well as flexbox for the css
